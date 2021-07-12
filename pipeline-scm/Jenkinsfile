@@ -9,14 +9,14 @@ pipeline {
         stage('Build') {
             steps {
                 git 'https://github.com/vatsanTraining/jenkins_lab.git'
-                dir('first-jenkins-pipeline'){
+                dir('pipleline-scm'){
                   bat 'mvn -Dmaven.test.failure.ignore=true clean package'
                 }
             }
 
             post {
                 success {
-                    archiveArtifacts 'first-jenkins-pipeline/target/*.jar'
+                    archiveArtifacts 'pipeline-scm/target/*.jar'
                 }
             }
         }
