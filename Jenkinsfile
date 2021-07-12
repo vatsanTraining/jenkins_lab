@@ -4,7 +4,9 @@ pipeline {
     tools {
         maven "M2_HOME"
     }
-
+    withMaven(
+        mavenLocalRepo: '$WORKSPACE/.repository', // (2)
+       )
     stages {
         stage('Build') {
             steps {
