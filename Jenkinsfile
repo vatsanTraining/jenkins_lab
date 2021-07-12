@@ -3,11 +3,10 @@ pipeline {
 
     tools {
         maven "M2_HOME"
+        mavenLocalRepo: '$WORKSPACE/.repository'
+
     }
-    withMaven(
-        mavenLocalRepo: '$WORKSPACE/.repository', // (2)
-       )
-    stages {
+     stages {
         stage('Build') {
             steps {
                 git 'https://github.com/vatsanTraining/jenkins_lab.git'
