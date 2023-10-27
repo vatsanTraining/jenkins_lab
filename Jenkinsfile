@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 git 'https://github.com/vatsanTraining/jenkins_lab.git'
-                dir('pipleline-scm'){
+                dir('pipeline-scm'){
                   bat 'mvn -Dmaven.test.failure.ignore=true clean package'
                 }
             }
