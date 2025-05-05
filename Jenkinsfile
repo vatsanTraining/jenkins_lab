@@ -20,7 +20,6 @@ pipeline {
 
             post {
                 success {
-                    archiveArtifacts 'pipeline-scm/target/*.jar'
                 }
             }
         }
