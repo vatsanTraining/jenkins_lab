@@ -24,7 +24,7 @@ pipeline {
         sh 'mvn -B -DskipTests=false test'
       }
     }
-
+  }
     
   
 
