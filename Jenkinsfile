@@ -16,7 +16,9 @@ pipeline {
     stage('Build') {
       steps {
         // Run the Maven build commands
-        sh 'mvn -B -DskipTests clean package' // Clean, package, and install the artifact
+        dir('pipleline-scm'){
+        sh 'mvn -B -DskipTests clean package'
+        }// Clean, package, and install the artifact
       }
     }
     
