@@ -1,5 +1,6 @@
 #!/bin/bash
 pipeline {
+
   agent any
  tools {
         maven "maven"
@@ -11,7 +12,6 @@ pipeline {
         git 'https://github.com/vatsanTraining/jenkins_lab.git' // Replace with your Git repository URL
         // You can also specify the branch here if needed
       }
-    }
 
     stage('Build') {
       steps {
@@ -20,6 +20,22 @@ pipeline {
         sh 'mvn -B -DskipTests clean package'
         }// Clean, package, and install the artifact
       }
+
+    stages {
+        stage('Build') {
+            steps {
+                git 'https://github.com/vatsanTraining/jenkins_lab.git'
+                dir('pipleline-scm'){
+                  bat 'mvn -Dmaven.test.failure.ignore=true clean package'
+                }
+            }
+
+            post {
+                success {
+                    archiveArtifacts 'pipeline-scm/target/*.jar'
+                }
+            }
+        }
     }
     
     stage('Test') {
