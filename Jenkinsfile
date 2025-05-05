@@ -12,7 +12,7 @@ pipeline {
             steps {
                 git 'https://github.com/vatsanTraining/jenkins_lab.git'
                 dir('pipeline-scm'){
-                   maven.mvn(['clean', 'package])'
+                   maven.mvn(['clean', 'package'])'
                 }
             }
 
