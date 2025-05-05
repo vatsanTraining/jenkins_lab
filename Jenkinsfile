@@ -25,7 +25,9 @@ pipeline {
     stage('Test') {
       steps {
         // Run the Maven tests if needed
+        dir('pipeline-scm'){
         sh 'mvn -B -DskipTests=false test'
+        }
       }
     }
   }
