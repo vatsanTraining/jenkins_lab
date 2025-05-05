@@ -1,27 +1,26 @@
 #!/bin/bash
 
 pipeline {
-    agent any
-
-    tools {
-        maven "maven"
+  agent any
+    tools{
+        maven:"maven"
     }
+    stages{
+        stage('checkout'){
+            steps{
+                 git 'https://github.com/vatsanTraining/jenkins_lab.git'
 
-    stages {
-        stage('Build') {
-            steps {
-                git 'https://github.com/vatsanTraining/jenkins_lab.git'
-                dir('pipeline-scm'){
-                    script{
-                   maven.mvn(['clean', 'package'])
-                    }
-                }
             }
 
-            
         }
-    
+        stage('build'){
+            steps{
+                        sh 'mvn -B -DskipTests clean install' // Clean, package, and install the artifact
+
+            }
+        }
     }
+
 }
 
-
+  
