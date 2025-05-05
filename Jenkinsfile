@@ -12,7 +12,7 @@ pipeline {
             steps {
                 git 'https://github.com/vatsanTraining/jenkins_lab.git'
                 dir('pipeline-scm'){
-                   mvn '-Dmaven.test.failure.ignore=true clean package'
+                   maven.mvn(['clean', 'package])'
                 }
             }
 
@@ -24,3 +24,5 @@ pipeline {
         }
     }
 }
+
+
