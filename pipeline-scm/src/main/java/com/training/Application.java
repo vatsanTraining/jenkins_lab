@@ -16,3 +16,5 @@ public class Application {
 	}
 
 }
+
+//https://www.lambdatest.com/blog/jenkins-declarative-pipeline-examples/
