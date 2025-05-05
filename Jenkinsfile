@@ -1,3 +1,5 @@
+#!/bin/bash
+
 pipeline {
     agent any
 
@@ -10,7 +12,7 @@ pipeline {
             steps {
                 git 'https://github.com/vatsanTraining/jenkins_lab.git'
                 dir('pipeline-scm'){
-                  bat 'mvn -Dmaven.test.failure.ignore=true clean package'
+                   mvn -Dmaven.test.failure.ignore=true clean package
                 }
             }
 
