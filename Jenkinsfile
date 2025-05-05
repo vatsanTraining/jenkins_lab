@@ -28,18 +28,5 @@ pipeline {
     
   
 
-  post {
-    failure {
-      // Code to run if the build fails
-      // For example, send an email or a notification
-      // See the Jenkins documentation for available actions
-    }
-
-    success {
-      // Code to run if the build is successful
-      // For example, deploy the artifact to a server
-      // See the Jenkins documentation for available actions
-    }
-  }
-
+ 
 }
